@@ -26,6 +26,7 @@ class ProcFSHandler(BaseHTTPRequestHandler):
             self.send_header("Content-Type", "application/json")
             self.end_headers()
             self.wfile.write(response)
+            self.wfile.write("\n")
         except PathNotFoundError as e:
             self.send_error(404, "path %s does not exist" % e)
 
